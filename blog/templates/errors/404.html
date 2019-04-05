@@ -1,0 +1,9 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+
+{% block title %} Trang khồng tồn tại {% endblock %}
+
+{% block content %}
+<h1>Trang bạn yêu cầu không tồn tại</h1>
+<h3><a href="{% url 'index' %}">Quay lại trang chủ</a></h3>
+{% endblock %}

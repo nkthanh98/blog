@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/css/navbar.css' %}">
+
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+    <!-- Logo -->
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <!-- <img src="{% static 'images/logo.png' %}" alt="logo" style="width:40px;"> -->
+        <h3 style="font-family: Merienda">Yeu dev</h3>
+    </a>
+
+    <!-- Button expand -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Main -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Trang chủ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category' %}">Chuyên mục</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">Về tác giả</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="GET" action="/search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" name="keyword">
+        </form>
+    </div>
+</nav>

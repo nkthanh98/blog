@@ -1,0 +1,26 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+{% load markdown_extras %}
+
+{% block title %} About {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="row" id="about">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 left">
+        <div class="admin-image">
+            <img class="rounded float-left" src="{{ admin.profile.image.url }}" alt="">
+        </div>  
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 right">
+        <h2>About me</h2>
+        <article>
+            {{ admin.profile.description | markdown | safe }}
+        </article>  
+    </div>
+</div>
+
+{% endblock %}

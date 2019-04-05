@@ -1,0 +1,25 @@
+.post-title {
+    color: rgba(4, 119, 145, 0.9);
+}
+
+.post-tags {
+    font-size: 12px;
+}
+
+.post-tags li{
+    display: inline-block;
+}
+
+.post-tags > * {
+    display: inline;
+    width: fit-content;
+}
+
+.post-tags ul {
+    padding: 0;
+}
+
+.post-box {
+    margin: 15px 15px 15px 0;
+    width: 30%;
+}

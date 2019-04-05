@@ -1,0 +1,16 @@
+* {
+    font-family: 'Open Sans', serif;
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+}
+
+#nav {
+    background-color: hsl(205, 10%, 24%);
+}
+
+#main {
+    margin-top: 80px;
+}

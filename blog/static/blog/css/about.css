@@ -1,0 +1,18 @@
+article {
+    line-height: 2em;
+    font-size: 16px;
+    word-spacing: 3px;
+    text-align: justify;
+}
+
+article img {
+    margin: 0 auto;
+}
+
+#about {
+    margin-top: 20px;
+}
+
+.right {
+    padding: 0 30px;
+}

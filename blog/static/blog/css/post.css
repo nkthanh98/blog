@@ -1,0 +1,16 @@
+.main header .post-bottom {
+    display: block;
+    padding-right: 15px;
+}
+
+.main article {
+    line-height: 2em;
+    font-size: 16px;
+    word-spacing: 3px;
+    text-align: justify;
+}
+
+.main article pre {
+    width: 60%;
+    margin: 0 auto;
+}

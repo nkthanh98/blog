@@ -1,0 +1,50 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+
+{% block title %} {{ post.title }} {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog/css/post.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <header>
+        <div class="image mb-5">
+            <img src="{{ post.image.url }}" alt="Image">
+        </div>
+        <div class="post-title">
+            <h1 class=""><strong>{{ post.title }}</strong></h1>
+        </div>
+        <div class="post-bottom">
+            <div class="post-author">
+                <small class="fas fa-user"></small>
+                <small>{{ post.author.get_full_name }}</small>
+            </div>
+            <div class="post-view">
+                <small class="fas fa-eye"></small>
+                <small>{{ post.n_views }}</small>
+            </div>
+            <div class="post-publish">
+                <small class="fas fa-clock"></small>
+                <small>{{ post.on_publish }}</small>
+            </div>
+            <div class="post-category">
+                <small><strong>Chuyên mục:</strong></small>
+                <small>{{ post.category.title }}</small>
+            </div>
+            <div class="post-tags">
+                <small class="fas fa-tag"></small>
+                {% for it in post.tags %}
+                    <small class="badge badge-secondary">{{ it }}</small>
+                {% endfor %}
+            </div>
+        </div>
+    </header>
+    <article class="mt-3 p-3">
+        {% load markdown_extras %}
+        {{ post.content | markdown | safe }}
+    </article>
+</div>
+
+{% endblock %}

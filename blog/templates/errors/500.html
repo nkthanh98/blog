@@ -1,0 +1,9 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+
+{% block title %} Lỗi máy chủ {% endblock %}
+
+{% block content %}
+<h1>Xin lỗi các bạn, máy chủ đang gặp sự cố</h1>
+<h3><a href="{% url 'index' %}">Quay lại trang chủ</a></h3>
+{% endblock %}

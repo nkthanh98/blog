@@ -1,0 +1,58 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+
+{% block title %} {{ category.title }} {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog/css/category_view.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main d-flex flex-row flex-wrap flex-fill justify-content-start">
+    {% for o in posts %}
+    <div class="post-box">
+        <div class="post-image">
+            <img src="{{ o.image.url }}" alt="" srcset="">
+        </div>
+        <div class="post-title">
+            <h3 class="text-primary"><a href="{% url 'post' o.id %}">{{ o.title }}</a></h3>
+        </div>
+        <div class="post-bottom text-secondary">
+            <div class="post-author">
+                <small class="fas fa-user"></small>
+                <small>{{ o.author.get_full_name }}</small>
+            </div>
+            <div class="post-publish">
+                <small class="fas fa-calendar"></small>
+                <small>{{ o.on_publish }}</small>
+            </div>
+            <div class="post-view">
+                <small class="fas fa-eye"></small>
+                <small>{{ o.n_views }}</small>
+            </div>
+            <div class="post-tags">
+                <small class="fas fa-tags"></small>
+                <ul class="post-tags">
+                    {% for it in o.tags %}
+                        <small class="badge badge-secondary">{{ it }}</small>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if posts.paginator.num_pages > 1 %}
+<ul class="pagination justify-content-center" style="margin:20px 0">
+    {% if posts.has_previous %}
+    <li class="page-item"><a class="page-link" href="{% url 'category_view' category.id posts.previous_page_number %}">Trước</a></li>
+    {% endif %}
+    <li class="page-item active"><a class="page-link" href="#">{{ page_id }}</a></li>
+    {% if posts.has_next %}
+    <li class="page-item"><a class="page-link" href="{% url 'category_view' category.id posts.next_page_number %}">Sau</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+
+{% endblock %}

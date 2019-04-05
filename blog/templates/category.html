@@ -1,0 +1,30 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+
+{% block title %} Chuyên mục {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog/css/category.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main d-flex flex-row flex-wrap flex-fill justify-content-start">
+    {% for o in categories %}
+    <div class="category">
+        <div class="cate-image">
+            <img src="{{ o.image.url }}" alt="" srcset="">
+        </div>
+        <div class="cate-title">
+            <h3 class="text-primary"><a href="{% url 'category_view' o.id 0 %}">{{ o.title }}</a></h3>
+        </div>
+        <div class="cate-bottom text-secondary">
+            <div class="cate-article">
+                <small class="fas fa-newspaper"></small>
+                <small>{{ o.post_set.count }}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

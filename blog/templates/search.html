@@ -1,0 +1,48 @@
+{% extends "base/base_generic.html" %}
+{% load static %}
+
+{% block title %} Kết quả cho {{ keyword }} {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog/css/search.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+{% if posts %}
+<h3 class="section-heading">Kết quả tìm kiếm cho <span class="keyword">{{ keyword }}</span></h3>
+<div class="d-flex flex-wrap flex-fill justify-content-start">
+    {% for o in posts %}
+    <div class="post-box">
+        <img src="{{ o.image.url }}" alt="" srcset="" />
+        <h5 class="post-title text-primary"><a href="{% url 'post' o.id %}">{{ o.title }}</a></h5>
+        <div class="post-bottom text-secondary">
+            <div class="post-author">
+                <small class="fas fa-user"></small>
+                <small>{{ o.author.get_full_name }}</small>
+            </div>
+            <div class="post-publish">
+                <small class="fas fa-calendar"></small>
+                <small>{{ o.on_publish }}</small>
+            </div>
+            <div class="post-view">
+                <small class="fas fa-eye"></small>
+                <small>{{ o.n_views }}</small>
+            </div>
+            <div class="post-tags">
+                <small class="fas fa-tags"></small>
+                <ul class="post-tags">
+                    {% for it in o.tags %}
+                        <small class="badge badge-secondary">{{ it }}</small>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h3 class="section-heading">Không có kết quả cho từ khóa <span class="keyword">{{ keyword }}</span></h3>
+{% endif %}
+
+{% endblock %}
