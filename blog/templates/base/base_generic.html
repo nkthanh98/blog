@@ -7,13 +7,13 @@
     {% load static %}
     {% load markdown_extras %}
     <link rel="shortcut icon" href="{% static 'blog/images/favicon.png' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'blog/lib/bootstrap-4.0.0/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/lib/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,400,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda:100,200,400,900">
-    <link rel="stylesheet" href="{% static 'blog/lib/highlightjs/styles/github.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/github.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/_all.css' %}">
     {% block style %} {% endblock %}
     <title>{% block title %} My blog {% endblock %}</title>
@@ -41,9 +41,9 @@
     {% include "./footer.html" %}
 
     {% block script %} {% endblock %}
-    <script src="{% static 'blog/lib/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'blog/lib/bootstrap-4.0.0/dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'blog/lib/highlightjs/highlight.pack.js' %}"></script>
+    <script src="{% static 'blog/lib/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'blog/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script>
     <script src="{% static 'blog/js/script.js' %}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </body>
